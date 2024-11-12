@@ -18,20 +18,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         table.translatesAutoresizingMaskIntoConstraints = false
         
         return table
-    }()
-    
-    private lazy var shuffleButton: UIButton = {
-        let button = UIButton(type: .system)
         
-        button.setTitle("shuffle", for: .normal)
-        button.addTarget(self, action: #selector(shuffleData), for: .touchUpInside)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-        button.translatesAutoresizingMaskIntoConstraints = false
+    }()
 
-        button.frame = CGRect(x: view.frame.width - 120, y: 40, width: 120, height: 40)
-        
-        return button
-    }()
+    private lazy var shuffleButton = UIButton()
     
     private var items: [Int] = Array(1...30)
     private var checkedItems: Set<Int> = []
@@ -40,12 +30,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .black
+        view.backgroundColor = .white
+        
+        title = "Task 4"
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+        
+        let shuffleButton = UIBarButtonItem(title: "Shuffle", style: .plain, target: self, action: #selector(shuffleData))
+        navigationItem.rightBarButtonItem = shuffleButton
         
         view.addSubview(tableView)
-        view.addSubview(shuffleButton)
     }
-    
+
     @objc func shuffleData() {
         if !isShuffling {
             isShuffling = true
