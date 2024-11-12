@@ -32,7 +32,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         return button
     }()
-    private var items: [Int] = Array(1...30) 
+    
+    private var items: [Int] = Array(1...30)
     private var checkedItems: Set<Int> = []
     var isShuffling = false
     
