@@ -101,7 +101,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             tableView.moveRow(at: indexPath, to: IndexPath(row: 0, section: 0))
         }
         
-        
         tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         if indexPath.row != 0 {
             tableView.reloadRows(at: [indexPath], with: .automatic)
