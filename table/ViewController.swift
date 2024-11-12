@@ -10,9 +10,8 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     private lazy var tableView: UITableView = {
-        var table = UITableView()
+        var table = UITableView(frame: view.bounds, style: .insetGrouped)
         
-        table.frame = view.bounds
         table.delegate = self
         table.dataSource = self
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -24,10 +23,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     private lazy var shuffleButton: UIButton = {
         let button = UIButton(type: .system)
         
-        button.setTitle("Перемешать", for: .normal)
+        button.setTitle("shuffle", for: .normal)
         button.addTarget(self, action: #selector(shuffleData), for: .touchUpInside)
-        
-        button.frame = CGRect(x: view.frame.width - 140, y: 40, width: 120, height: 40)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        button.translatesAutoresizingMaskIntoConstraints = false
+
+        button.frame = CGRect(x: view.frame.width - 120, y: 40, width: 120, height: 40)
         
         return button
     }()
@@ -38,7 +39,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         
         view.addSubview(tableView)
         view.addSubview(shuffleButton)
