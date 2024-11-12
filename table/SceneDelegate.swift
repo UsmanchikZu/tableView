@@ -16,8 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         
-        let viewController = ViewController() // Ваш ViewController
-        let navigationController = UINavigationController(rootViewController: viewController) // Оборачивание в UINavigationController
+        let viewController = ViewController() /
+        let navigationController = UINavigationController(rootViewController: viewController)
         
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
